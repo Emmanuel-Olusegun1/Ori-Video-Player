@@ -1,0 +1,152 @@
+/* Global Styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0fdf4;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 10px;
+}
+
+/* Video Player Container */
+.player {
+    max-width: 850px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.player:hover {
+    transform: scale(1.02);
+}
+
+.player_video {
+    width: 100%;
+    display: block;
+    border-radius: 15px 15px 0 0;
+}
+
+/* Controls */
+.player_controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(135deg, #2d6a4f, #1b4332);
+    padding: 8px;
+    border-radius: 0 0 15px 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.player:hover .player_controls {
+    opacity: 1;
+}
+
+button {
+    background: #38a169;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 12px;
+    border-radius: 6px;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: #2f855a;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.player_button.toggle {
+    font-size: 16px;
+}
+
+.player_slider {
+    width: 80px;
+    height: 4px;
+    accent-color: #38a169;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.player_slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    background: #38a169;
+    border-radius: 4px;
+}
+
+.player_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    border: 2px solid #38a169;
+    margin-top: -4px;
+    cursor: pointer;
+}
+
+/* Progress Bar */
+.progress {
+    flex: .5;
+    height: 5px;
+    background: #d1fae5;
+    margin-right: 8px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress_filled {
+    width: 0;
+    height: 100%;
+    background: #01130e;
+    border-radius: 10px;
+    transition: width 0.2s ease-in-out; /* Keep transition here */
+    position: relative;
+    z-index: 10;  
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .player {
+        max-width: 100%;
+    }
+
+    .player_controls {
+        flex-direction: row;
+        gap: 5px;
+        padding: 6px;
+    }
+
+    button {
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+
+    .player_slider {
+        width: 60px;
+    }
+}
